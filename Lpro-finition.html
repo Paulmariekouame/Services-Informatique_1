@@ -5,20 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lpro Finition - Expert en Construction et Finitions</title>
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
+        /* Updated color scheme to match logo exactly */
         :root {
-            --primary-color: #1a4d7a;
-            --secondary-color: #ff6b35;
-            --dark-color: #2c3e50;
-            --light-color: #f8f9fa;
-            --gray-color: #6c757d;
+            --blue-dark: #102a54;
+            --orange: #e37222;
+            --gray-light: #f7f9fc;
+            --gray-text: #505050;
+            --white: #ffffff;
         }
         
         * {
@@ -28,363 +24,550 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--dark-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--blue-dark);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
-        
-        /* Navigation */
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-7, .col-md-6 {
+            padding: 0 15px;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .col-md-6 {
+                width: 50%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .col-lg-3 {
+                width: 25%;
+            }
+            .col-lg-4 {
+                width: 33.333%;
+            }
+            .col-lg-5 {
+                width: 41.666%;
+            }
+            .col-lg-7 {
+                width: 58.333%;
+            }
+        }
+
+        /* Updated navbar styling to match reference */
         .navbar {
-            background: var(--primary-color) !important;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: var(--blue-dark);
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 10px rgba(16, 42, 84, 0.15);
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .navbar-brand {
-            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: white !important;
-            letter-spacing: 1px;
+            color: var(--orange);
+            letter-spacing: 0.05em;
+            text-decoration: none;
         }
-        
-        .navbar-brand span {
-            color: var(--secondary-color);
+
+        .navbar-brand img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .navbar-toggler {
+            display: none;
+            background: transparent;
+            border: 2px solid var(--orange);
+            color: var(--orange);
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            font-size: 1.25rem;
+            border-radius: 0.25rem;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
         }
         
         .navbar-nav .nav-link {
-            color: white !important;
-            margin: 0 15px;
-            font-weight: 500;
+            color: var(--orange);
+            font-weight: 700;
+            letter-spacing: 0.05em;
             transition: all 0.3s;
+            text-decoration: none;
+            font-size: 1rem;
         }
         
         .navbar-nav .nav-link:hover {
-            color: var(--secondary-color) !important;
+            color: #f59e3b;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-toggler {
+                display: block;
+            }
+
+            .navbar-collapse {
+                display: none;
+                width: 100%;
+            }
+
+            .navbar-collapse.show {
+                display: block;
+            }
+
+            .navbar .container {
+                flex-wrap: wrap;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 0.5rem 0;
+                display: block;
+            }
         }
         
-        /* Hero Section */
+        /* Updated hero section with gradient matching reference */
         .hero {
-            background: linear-gradient(135deg, rgba(26, 77, 122, 0.95), rgba(44, 62, 80, 0.95)), 
-                        url('/placeholder.svg?height=800&width=1600');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(140deg, var(--orange) 25%, var(--blue-dark) 95%);
             color: white;
-            padding: 150px 0 100px;
+            padding: 8rem 1rem 6rem;
             text-align: center;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 3.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
         }
         
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.4rem;
+            margin: 0 auto 3rem;
+            max-width: 800px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
         }
         
-        .btn-primary-custom {
-            background: var(--secondary-color);
+        .btn-hero {
+            background-color: #f9a247;
             border: none;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: all 0.3s;
-            color: white;
+            padding: 1rem 3rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-radius: 40px;
+            transition: all 0.3s ease;
+            color: var(--blue-dark);
             text-decoration: none;
             display: inline-block;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(249, 162, 71, 0.5);
         }
         
-        .btn-primary-custom:hover {
-            background: #e55a28;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        .btn-hero:hover {
+            background-color: #d8710e;
             color: white;
+            box-shadow: 0 6px 20px rgba(216, 113, 14, 0.8);
+            text-decoration: none;
         }
         
         /* Services Section */
         .services {
-            padding: 80px 0;
-            background: var(--light-color);
+            padding: 5rem 0;
+            background: var(--white);
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 3rem;
         }
         
         .section-title h2 {
             font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+            font-weight: 800;
+            color: var(--blue-dark);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
         }
         
         .section-title p {
             font-size: 1.1rem;
-            color: var(--gray-color);
+            color: var(--gray-text);
         }
         
+        /* Updated card styling to match reference design */
         .service-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(16, 42, 84, 0.12);
+            transition: all 0.3s ease;
+            cursor: pointer;
             background: white;
-            padding: 40px 30px;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s;
+            overflow: hidden;
+            margin-bottom: 2rem;
             height: 100%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
         
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 18px 48px rgba(16, 42, 84, 0.25);
         }
-        
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2rem;
-            color: white;
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        
-        /* Portfolio/Réalisations */
-        .portfolio {
-            padding: 80px 0;
-        }
-        
-        .portfolio-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            cursor: pointer;
-        }
-        
-        .portfolio-item img {
+
+        .service-card img {
             width: 100%;
-            height: 350px;
+            height: 220px;
             object-fit: cover;
-            transition: all 0.5s;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-card-body {
+            padding: 1.8rem 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--gray-text);
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
         
-        .portfolio-overlay {
+        /* Added carousel styling for realizations */
+        .portfolio {
+            padding: 5rem 0 6rem;
+            background: var(--gray-light);
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(16, 42, 84, 0.15);
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            display: none;
+            position: relative;
+            width: 100%;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            max-height: 550px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .carousel-caption {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(26, 77, 122, 0.9), rgba(255, 107, 53, 0.9));
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(16, 42, 84, 0.85);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            max-width: 600px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .carousel-caption h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        .carousel-caption p {
+            font-size: 1.1rem;
+            color: white;
+            font-weight: 500;
+            margin-bottom: 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(16, 42, 84, 0.6);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            transition: all 0.4s;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-control:hover {
+            background-color: var(--orange);
+        }
+
+        .carousel-control-prev {
+            left: 20px;
+        }
+
+        .carousel-control-next {
+            right: 20px;
         }
         
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-        
-        .portfolio-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .portfolio-info {
-            text-align: center;
-            color: white;
-            padding: 20px;
-        }
-        
-        .portfolio-info h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        /* Contact Section */
+        /* Updated contact section styling */
         .contact {
-            padding: 80px 0;
-            background: var(--light-color);
+            padding: 5rem 0 6rem;
+            background: white;
         }
         
         .contact-info {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            height: 100%;
+            padding: 2rem;
         }
         
-        .contact-item {
-            display: flex;
-            align-items: start;
-            margin-bottom: 30px;
+        .contact-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin-bottom: 2rem;
         }
-        
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-        
-        .contact-item h4 {
-            font-size: 1.2rem;
+
+        .contact-info p {
+            font-size: 1.3rem;
+            margin-bottom: 1.4rem;
             font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--primary-color);
+            color: var(--blue-dark);
         }
-        
-        .contact-item a {
-            color: var(--gray-color);
+
+        .contact-info a {
+            color: var(--orange);
             text-decoration: none;
-            transition: all 0.3s;
+            transition: color 0.3s ease;
+            word-break: break-word;
+        }
+
+        .contact-info a:hover {
+            color: #d55f00;
+            text-decoration: underline;
         }
         
-        .contact-item a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
+        .btn-contact {
+            display: inline-block;
+            margin-top: 6px;
+            font-weight: 700;
+            padding: 0.65rem 2.2rem;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            transition: all 0.3s;
-            margin-top: 20px;
+            width: 100%;
+            margin-bottom: 1rem;
         }
-        
-        .whatsapp-btn:hover {
-            background: #1fa855;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+
+        .btn-whatsapp {
+            background-color: #25d366;
             color: white;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.55);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1fa851;
+            box-shadow: 0 7px 22px rgba(31, 168, 81, 0.8);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-call {
+            background-color: var(--orange);
+            color: white;
+            box-shadow: 0 5px 15px rgba(227, 114, 34, 0.55);
+        }
+
+        .btn-call:hover {
+            background-color: #cc6119;
+            box-shadow: 0 7px 20px rgba(204, 97, 25, 0.85);
+            color: white;
+            text-decoration: none;
         }
         
         .contact-form {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin-bottom: 2rem;
         }
         
         .form-control {
-            padding: 12px 20px;
-            border: 2px solid #e9ecef;
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            border: 1.7px solid var(--blue-dark);
             border-radius: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 1.2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.05rem;
+            transition: border-color 0.3s ease;
         }
         
         .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(26, 77, 122, 0.25);
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 8px 2px rgba(227, 114, 34, 0.5);
+        }
+
+        textarea.form-control {
+            min-height: 135px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background-color: var(--orange);
+            color: white;
+            font-weight: 700;
+            padding: 0.9rem 2.5rem;
+            border-radius: 40px;
+            font-size: 1.15rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: #cc6119;
+            box-shadow: 0 8px 20px rgba(204, 97, 25, 0.8);
         }
         
         /* Footer */
         .footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer h5 {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        .footer a {
-            color: #bbb;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .footer a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-right: 10px;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
+            background-color: var(--blue-dark);
+            color: var(--orange);
+            text-align: center;
+            padding: 1.3rem 1rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-size: 1rem;
         }
         
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.15rem;
             }
-            
-            .section-title h2 {
-                font-size: 2rem;
+
+            .carousel-caption {
+                bottom: 20px;
+                padding: 1rem 1.5rem;
             }
-        }
-        
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
+
+            .carousel-caption h3 {
+                font-size: 1.3rem;
+            }
+
+            .carousel-caption p {
+                font-size: 0.95rem;
+            }
+
+            .carousel-control {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <!-- Updated navbar with logo image -->
+    <nav class="navbar">
         <div class="container">
-            <a class="navbar-brand" href="#accueil">Lpro <span>Finition</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            <a class="navbar-brand" href="#accueil">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/RO-PzpdOJxwy1SjnWsr4UGoYQWuEhGwl5.jpg" alt="Logo Lpro Finition">
+                <span>Lpro Finition</span>
+            </a>
+            <button class="navbar-toggler" onclick="toggleMenu()">☰</button>
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#accueil">Accueil</a>
                     </li>
@@ -402,20 +585,15 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="accueil" class="hero">
         <div class="container">
-            <h1 data-aos="fade-up">Lpro Finition</h1>
-            <p data-aos="fade-up" data-aos-delay="100">
-                Votre partenaire de confiance pour tous vos projets de construction, électronique, sécurité et finition
-            </p>
-            <a href="#contact" class="btn-primary-custom" data-aos="fade-up" data-aos-delay="200">
-                Demander un Devis
-            </a>
+            <h1>Lpro Finition</h1>
+            <p>Experts en construction, sécurité électronique, peinture et finitions de qualité supérieure.</p>
+            <a href="#contact" class="btn-hero">Contactez-nous</a>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Updated services section with images -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-title">
@@ -423,51 +601,51 @@
                 <p>Des solutions complètes pour tous vos besoins</p>
             </div>
             
-            <div class="row g-4">
+            <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-building"></i>
+                        <img src="img/Construction d'une nouvelle maison résidentielle en cours sur le chantier _ Photo Premium.jpeg" alt="Construction & Bâtiments">
+                        <div class="service-card-body">
+                            <h3>Construction & Bâtiments</h3>
+                            <p>Construction résidentielle et commerciale avec qualité et rigueur.</p>
                         </div>
-                        <h3>Bâtiment</h3>
-                        <p>Construction et rénovation de bâtiments résidentiels et commerciaux avec expertise et professionnalisme</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-cpu"></i>
+                        <img src="img/eheh.jpeg" alt="Électronique">
+                        <div class="service-card-body">
+                            <h3>Électronique</h3>
+                            <p>Installation et maintenance de systèmes électroniques modernes et performants.</p>
                         </div>
-                        <h3>Électronique</h3>
-                        <p>Installation et maintenance de systèmes électroniques modernes et performants</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-shield-check"></i>
+                        <img src="img/Pourquoi opter pour des systèmes d’alarme sans fil chez soi _.jpeg" alt="Sécurité Électronique">
+                        <div class="service-card-body">
+                            <h3>Sécurité Électronique</h3>
+                            <p>Installation de systèmes avancés de vidéosurveillance et alarmes.</p>
                         </div>
-                        <h3>Sécurité</h3>
-                        <p>Systèmes de sécurité électronique avancés pour protéger vos biens et vos proches</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-paint-bucket"></i>
+                        <img src="img/🧑_🎨🎨 Travaux réalisés.jpeg" alt="Peinture">
+                        <div class="service-card-body">
+                            <h3>Peinture & Rénovation</h3>
+                            <p>Travaux de peinture et finitions pour des résultats impeccables.</p>
                         </div>
-                        <h3>Peinture</h3>
-                        <p>Services de peinture intérieure et extérieure pour sublimer vos espaces</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Updated realizations section with carousel -->
     <section id="realisations" class="portfolio">
         <div class="container">
             <div class="section-title">
@@ -475,151 +653,85 @@
                 <p>Découvrez nos projets récents</p>
             </div>
             
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Construction">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Construction Résidentielle</h3>
-                                <p>Villa moderne de 250m²</p>
-                            </div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/tete.jpeg" alt="Bâtiment Résidentiel Moderne">
+                        <div class="carousel-caption">
+                            <h3>Bâtiment Résidentiel Moderne</h3>
+                            <p>Projet complet intégrant bâtiment, électricité et sécurité.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <img src="img/Vous cherchez à renforcer la sécurité de votre domicile ou de votre entreprise _.jpeg" alt="Installation Sécurité">
+                        <div class="carousel-caption">
+                            <h3>Système de Sécurité Électronique</h3>
+                            <p>Installation d'un réseau de caméras et alarmes pour une entreprise.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <img src="img/télécharger.jpeg" alt="Peinture Rénovation">
+                        <div class="carousel-caption">
+                            <h3>Rénovation & Peinture</h3>
+                            <p>Refonte complète des murs avec peinture professionnelle et finitions soignées.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="img/electroniquee.jpeg" alt="Installation Électronique">
+                        <div class="carousel-caption">
+                            <h3>Installation Électronique</h3>
+                            <p>Bureaux commerciaux équipés de systèmes électroniques modernes.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="img/plan maison.jpeg" alt="Rénovation Façade">
+                        <div class="carousel-caption">
+                            <h3>Rénovation Façade</h3>
+                            <p>Immeuble commercial rénové avec finitions professionnelles.</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Sécurité">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Système de Sécurité</h3>
-                                <p>Installation complète pour entreprise</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Peinture">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Peinture Intérieure</h3>
-                                <p>Rénovation complète d'appartement</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Électronique">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Installation Électronique</h3>
-                                <p>Bureaux commerciaux 500m²</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Rénovation">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Rénovation Façade</h3>
-                                <p>Immeuble commercial</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="portfolio-item">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Vidéosurveillance">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Vidéosurveillance</h3>
-                                <p>Système complet 24 caméras</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <button class="carousel-control carousel-control-prev" onclick="changeSlide(-1)">‹</button>
+                <button class="carousel-control carousel-control-next" onclick="changeSlide(1)">›</button>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Updated contact section layout -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Contactez-Nous</h2>
+                <h2>Contactez-nous</h2>
                 <p>Nous sommes à votre écoute pour tous vos projets</p>
             </div>
             
-            <div class="row g-4">
+            <div class="row">
                 <div class="col-lg-5">
                     <div class="contact-info">
-                        <h3 class="mb-4">Informations de Contact</h3>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="bi bi-telephone-fill"></i>
-                            </div>
-                            <div>
-                                <h4>Téléphone</h4>
-                                <a href="tel:0706093396">0706 09 33 96</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="bi bi-envelope-fill"></i>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:lprofinition07@gmail.com">lprofinition07@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="bi bi-clock-fill"></i>
-                            </div>
-                            <div>
-                                <h4>Horaires</h4>
-                                <p class="mb-0">Lundi - Samedi: 8h00 - 18h00</p>
-                                <p class="text-muted">Dimanche: Sur rendez-vous</p>
-                            </div>
-                        </div>
-                        
-                        <a href="https://wa.me/+2250706093396" target="_blank" class="whatsapp-btn">
-                            <i class="bi bi-whatsapp"></i>
-                            Contactez-nous sur WhatsApp
-                        </a>
+                        <h3>Informations</h3>
+                        <p><strong>Téléphone :</strong><br><a href="tel:0706093396">07 06 09 33 96</a></p>
+                        <p><strong>Email :</strong><br><a href="mailto:lprofinition07@gmail.com">lprofinition07@gmail.com</a></p>
+                        <p><strong>WhatsApp :</strong></p>
+                        <a href="https://wa.me/2250706093396?text=Bonjour%20Lpro%20Finition%2C%0A%0AJe%20viens%20de%20visiter%20votre%20site%20web%20et%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20vos%20services.%20J'aimerais%20obtenir%20plus%20d'informations.%0A%0AMerci%20!" target="_blank" class="btn-contact btn-whatsapp">Envoyer un message WhatsApp</a>
+                        <p><strong>Appel :</strong></p>
+                        <a href="tel:0706093396" class="btn-contact btn-call">Appeler maintenant</a>
                     </div>
                 </div>
                 
                 <div class="col-lg-7">
                     <div class="contact-form">
-                        <h3 class="mb-4">Envoyez-nous un Message</h3>
-                        <form id="contactForm">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Votre Nom" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" placeholder="Votre Email" required>
-                                </div>
-                            </div>
-                            <input type="tel" class="form-control" placeholder="Votre Téléphone" required>
-                            <input type="text" class="form-control" placeholder="Sujet">
-                            <textarea class="form-control" rows="5" placeholder="Votre Message" required></textarea>
-                            <button type="submit" class="btn-primary-custom w-100">
-                                Envoyer le Message
-                            </button>
+                        <h3>Envoyez-nous un message</h3>
+                        <form action="mailto:lprofinition07@gmail.com" method="post" enctype="text/plain">
+                            <input type="text" name="Nom" class="form-control" placeholder="Votre nom complet" required>
+                            <input type="email" name="Email" class="form-control" placeholder="Votre adresse email" required>
+                            <input type="tel" name="Telephone" class="form-control" placeholder="Votre téléphone">
+                            <textarea name="Message" class="form-control" placeholder="Votre message ici..." required></textarea>
+                            <button type="submit" class="btn-submit">Envoyer</button>
                         </form>
                     </div>
                 </div>
@@ -627,51 +739,16 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <h5>À Propos</h5>
-                    <p>Lpro Finition est votre partenaire de confiance pour tous vos projets de construction, électronique, sécurité et finition. Nous offrons des services de qualité supérieure.</p>
-                </div>
-                
-                <div class="col-lg-4">
-                    <h5>Services</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#services">Construction de bâtiments</a></li>
-                        <li><a href="#services">Installation électronique</a></li>
-                        <li><a href="#services">Sécurité électronique</a></li>
-                        <li><a href="#services">Peinture & Finition</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-4">
-                    <h5>Contact</h5>
-                    <p><i class="bi bi-telephone"></i> 0706 09 33 96</p>
-                    <p><i class="bi bi-envelope"></i> lprofinition07@gmail.com</p>
-                    <div class="social-links mt-3">
-                        <a href="https://wa.me/+2250706093396" target="_blank"><i class="bi bi-whatsapp"></i></a>
-                        <a href="tel:0706093396"><i class="bi bi-telephone"></i></a>
-                        <a href="mailto:lprofinition07@gmail.com"><i class="bi bi-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <hr class="mt-5 mb-4" style="border-color: rgba(255,255,255,0.1)">
-            
-            <div class="text-center">
-                <p>&copy; 2025 Lpro Finition. Tous droits réservés.</p>
-            </div>
-        </div>
+        <p>&copy; 2025 Lpro Finition. Tous droits réservés.</p>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JavaScript -->
     <script>
-        // Smooth scrolling for navigation links
+        function toggleMenu() {
+            const navbarCollapse = document.getElementById('navbarNav');
+            navbarCollapse.classList.toggle('show');
+        }
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -681,8 +758,7 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu if open
-                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    const navbarCollapse = document.getElementById('navbarNav');
                     if (navbarCollapse.classList.contains('show')) {
                         navbarCollapse.classList.remove('show');
                     }
@@ -690,50 +766,42 @@
             });
         });
 
-        // Change navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(26, 77, 122, 0.98)';
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
             } else {
-                navbar.style.background = 'var(--primary-color)';
+                currentSlide = index;
             }
-        });
-
-        // Form submission handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
             
-            // Get form data
-            const formData = new FormData(this);
+            slides[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // Auto-advance carousel
+        setInterval(() => {
+            changeSlide(1);
+        }, 4500);
+
+        // Form validation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const nom = this.querySelector('[name="Nom"]').value.trim();
+            const email = this.querySelector('[name="Email"]').value.trim();
+            const message = this.querySelector('[name="Message"]').value.trim();
             
-            // Show success message
-            alert('Merci pour votre message ! Nous vous contacterons bientôt.');
-            
-            // Reset form
-            this.reset();
-        });
-
-        // Add animation on scroll for portfolio items
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.portfolio-item, .service-card').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(30px)';
-            item.style.transition = 'all 0.6s ease';
-            observer.observe(item);
+            if (!nom || !email || !message) {
+                e.preventDefault();
+                alert('Veuillez remplir tous les champs obligatoires avant d\'envoyer le message.');
+            }
         });
     </script>
 </body>
